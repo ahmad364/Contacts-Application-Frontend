@@ -1,0 +1,9 @@
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbfbfb; /* Set a suitable background color */
+    width: 100%;
+    min-height: 90.5vh;
+}
