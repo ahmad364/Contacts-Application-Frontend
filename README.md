@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Contacts Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Prerequisites
 
-## Available Scripts
+- **Node.js**: Ensure you have Node.js version 16 installed. You can check your current Node.js version by running:
 
-In the project directory, you can run:
+  node -v
 
-### `npm start`
+  If you need to install Node.js version 16, follow the steps below.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installing Node.js Version 16 Using nvm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Install nvm**: Follow the installation instructions from the [nvm GitHub repository](https://github.com/nvm-sh/nvm#install--update-script).
 
-### `npm test`
+2. **Verify nvm installation**: Close and reopen your terminal, then run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    nvm --version
 
-### `npm run build`
+3. **Install Node.js version 16**:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    nvm install 16
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Use Node.js version 16**:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    nvm use 16
 
-### `npm run eject`
+5. **Set Node.js version 16 as the default version**:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    nvm alias default 16
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. **Verify the Node.js version**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    node -v
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    This should output a version number starting with `v16`.
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Cloning the Repository
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+First, clone the repository to your local machine using Git:
 
-### Code Splitting
+git clone https://github.com/your-username/your-repository.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Navigate into the project directory:
 
-### Analyzing the Bundle Size
+cd your-repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Installing Dependencies
 
-### Making a Progressive Web App
+Install the project dependencies using npm (make sure you are in the project directory):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+npm install
 
-### Advanced Configuration
+### Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To start the development server, run:
 
-### Deployment
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the application in action.
 
-### `npm run build` fails to minify
+### Additional Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Build**: To build the application for production, run:
+
+  npm run build
+
+- **Test**: To run tests, use:
+
+  npm test
+
+## Troubleshooting
+
+If you encounter any issues, ensure you are using Node.js version 16 by running:
+
+node -v
+
+If the version is not 16, follow the steps in the [Installing Node.js Version 16 Using nvm](#installing-nodejs-version-16-using-nvm) section to switch to the correct version.
