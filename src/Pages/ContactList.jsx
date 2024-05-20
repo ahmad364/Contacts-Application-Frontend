@@ -14,25 +14,29 @@ import {
 import MaterialTable from 'material-table';
 import PageContainer from '../Components/PageContainer/PageContainer';
 import { useNavigate } from 'react-router-dom';
+import { TextField, IconButton } from '@material-ui/core';
 
 const ContactList = () => {
   const navigate = useNavigate();
   const [contacts, setContacts] = useState([
     {
       id: 1,
-      name: 'John',
+      firstName: 'John',
       lastName: 'Doe',
       email: 'john@example.com',
       phoneNumbers: ['1234567890', '9876543210']
     },
     {
       id: 2,
-      name: 'Jane',
+      firstName: 'Jane',
       lastName: 'Doe',
       email: 'jane@example.com',
       phoneNumbers: ['1112223333', '4445556666']
     }
   ]);
+  const [firstNameSearch, setFirstNameSearch] = useState('');
+  const [lastNameSearch, setLastNameSearch] = useState('');
+  const [phoneSearch, setPhoneSearch] = useState('');
 
   const tableIcons = {
     Search: SearchIcon,
@@ -45,12 +49,75 @@ const ContactList = () => {
     Filter: FilterListIcon
   };
 
+  const handleFirstNameSearchChange = (event) => {
+    setFirstNameSearch(event.target.value);
+  };
+
+  const handleLastNameSearchChange = (event) => {
+    setLastNameSearch(event.target.value);
+  };
+
+  const handlePhoneSearchChange = (event) => {
+    setPhoneSearch(event.target.value);
+  };
+
+  const handleFirstNameSearchKeyPress = async (event) => {
+    if (event.key === 'Enter') {
+      const response = await fetch(`/api/searchByFirstName?firstName=${firstNameSearch}`);
+      const data = await response.json();
+      setContacts(data);
+    }
+  };
+
+  const handleLastNameSearchKeyPress = async (event) => {
+    if (event.key === 'Enter') {
+      const response = await fetch(`/api/searchByLastName?lastName=${lastNameSearch}`);
+      const data = await response.json();
+      setContacts(data);
+    }
+  };
+
+  const handlePhoneSearchKeyPress = async (event) => {
+    if (event.key === 'Enter') {
+      const response = await fetch(`/api/searchByPhone?phone=${phoneSearch}`);
+      const data = await response.json();
+      setContacts(data);
+    }
+  };
+
   const columns = [
-    { title: 'Name', field: 'name' },
-    { title: 'Last Name', field: 'lastName' },
-    { title: 'Email', field: 'email', filtering: true },
     {
-      title: 'Phone Numbers',
+      title: (
+        <TextField
+          label="Search First Name"
+          value={firstNameSearch}
+          onChange={handleFirstNameSearchChange}
+          onKeyPress={handleFirstNameSearchKeyPress}
+        />
+      ),
+      field: 'firstName'
+    },
+    {
+      title: (
+        <TextField
+          label="Search Last Name"
+          value={lastNameSearch}
+          onChange={handleLastNameSearchChange}
+          onKeyPress={handleLastNameSearchKeyPress}
+        />
+      ),
+      field: 'lastName'
+    },
+    { title: 'Email', field: 'email' },
+    {
+      title: (
+        <TextField
+          label="Search Phone"
+          value={phoneSearch}
+          onChange={handlePhoneSearchChange}
+          onKeyPress={handlePhoneSearchKeyPress}
+        />
+      ),
       field: 'phoneNumbers',
       render: rowData => (
         <div>
@@ -77,19 +144,7 @@ const ContactList = () => {
 
   const options = {
     actionsColumnIndex: -1,
-    filtering: true,
-    headerStyle: {
-      paddingTop: 0,
-      paddingBottom: 0,
-      whiteSpace: 'nowrap',
-      backgroundColor: '#3f51b5',
-      color: '#fff',
-      height: '50px',
-      position: 'sticky',
-      top: 0,
-      overflow: 'hidden',
-      zIndex: 2
-    }
+    toolbar: false
   };
 
   return (
