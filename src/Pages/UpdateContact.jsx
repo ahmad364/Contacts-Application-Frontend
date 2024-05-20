@@ -61,7 +61,7 @@ function UpdateContact() {
                         variant="outlined"
                         value={field.value}
                         type='number'
-                        style={{ width: '500px' }} // Set the width to 300px
+                        style={{ width: '100%' }} // Set the width to 300px
                         onChange={e => handlePhoneChange(field.id, e.target.value)}
                     />
                     <Button
